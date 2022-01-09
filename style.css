@@ -1,1 +1,50 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
+html, body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 62.5%;
+}
+
+.container {
+    background-color: rgb(213, 213, 213);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.icons-lg {
+    width: 10rem;
+    height: 32rem;
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.icons-lg .icon {
+    background-color: #333;
+    width: 10rem;
+    height: 10rem;
+    border-radius: 50%;
+    transition: all .3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icons-lg .icon i {
+    color: #fff;
+    font-size: 5rem;
+}
+
+.icons-lg .icon:hover {
+    background-color: #000;
+    cursor: pointer;
+    transform: scale(105%);
+}
