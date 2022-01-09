@@ -6,4 +6,4 @@
 
 ✍️ There will also be a toggle which will allow the user to log their calculations to a list with the ability to rename each entry. These logged calculations can be deleted or selected for further use.
 
-👀 DEMO: You can view the progress on this project here.
+👀 DEMO: You can view the progress on this project [here](https://web-dev-dan.github.io/JavaScript-Calculator-App/).
