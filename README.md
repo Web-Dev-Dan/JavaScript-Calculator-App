@@ -1,2 +1,3 @@
 # JavaScript-Calculator-App
-An attempt to make a more advanced calculator application using JavaScript.
+
+🛠 In this project, I am attempting to make an advanced calculator application with a number of different features. Building for my portfolio 😊
