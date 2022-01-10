@@ -4,6 +4,7 @@
 const modalBackground = document.querySelector('.modal-background');
 const modalContainer = document.querySelector('.modal-container');
 const settingsBtn = document.querySelectorAll('.settings-btn');
+const closeModalBtn = document.querySelector('.close-modal-btn');
 
 function openModal() {
     modalBackground.style.display = 'flex';
@@ -21,6 +22,9 @@ function closeModal() {
 settingsBtn.forEach((button) => {
     button.addEventListener('click', openModal);
 });
+
+// Close Modal Button
+closeModalBtn.addEventListener('click', closeModal);
 
 // Close Modal on Background Click
 modalBackground.addEventListener('click', closeModal);
