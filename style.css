@@ -45,6 +45,7 @@ html, body {
     border-radius: .5rem;
     z-index: 100;
     display: none;
+    flex-direction: column;
 }
 
 .close-modal-btn {
@@ -80,6 +81,15 @@ html, body {
 
 .close-modal-btn:hover .close-active {
     display: flex;
+}
+
+.modal-container h2 {
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: -.2rem;
+    text-align: center;
+    line-height: 1.5;
+    padding: 4rem 4rem;
 }
 
 
@@ -182,7 +192,7 @@ html, body {
 
 /* Calculator */
 .calculator {
-    background-color: red;
+    background-color: #fff;
     width: 40rem;
     height: 50rem;
     margin-top: 12rem;
