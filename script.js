@@ -1,5 +1,14 @@
 'use strict'
 
+// ---------- 📅 Date 📅 --------------
+const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+
+const currentYear = new Date().getFullYear();
+const currentYearText = document.getElementById('currentYearText');
+currentYearText.textContent = currentYear;
+
+
 // ---------- 📄 Toggle Modals 📄 ----------
 const modalBackground = document.querySelector('.modal-background');
 const modalContainer = document.querySelector('.modal-container');
@@ -20,7 +29,13 @@ function closeModal() {
 
 // Open Modal with Buttons
 settingsBtn.forEach((button) => {
-    button.addEventListener('click', openModal);
+    if (button.classList.contains('palette-btn')) {
+        button.addEventListener('click', openPaletteModal);
+    } else if (button.classList.contains('calculator-btn')) {
+        button.addEventListener('click', openCalculatorModal);
+    } else if (button.classList.contains('log-btn')) {
+        button.addEventListener('click', openLogModal);
+    }
 });
 
 // Close Modal Button
@@ -35,7 +50,25 @@ document.addEventListener('keydown', (e) => {
     if (pressed === 'Escape') {
         if (modalContainer.classList.contains('settings-modal-active')) {
             closeModal();
-            console.log('Closed!');
         }
     }
 });
+
+
+// ---------- 📊 Modal Content 📊 ----------
+const modalHeader = document.querySelector('.modal-header');
+
+function openPaletteModal() {
+    openModal();
+    modalHeader.textContent = 'Choose a Colour Palette';
+}
+
+function openCalculatorModal() {
+    openModal();
+    modalHeader.textContent = 'Choose a Calculator';
+}
+
+function openLogModal() {
+    openModal();
+    modalHeader.textContent = 'Check Your Logged Calculations';
+}
