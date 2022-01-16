@@ -72,3 +72,14 @@ function openLogModal() {
     openModal();
     modalHeader.textContent = 'Check Your Logged Calculations';
 }
+
+
+// ---------- 🧮 Calculator 🧮 ----------
+const calculatorBtns = document.querySelectorAll('.btn');
+
+calculatorBtns.forEach((button) => {
+    button.addEventListener('click', function (e) {
+        const pressedBtn = e.target;
+        console.log(pressedBtn.textContent);
+    });
+});
