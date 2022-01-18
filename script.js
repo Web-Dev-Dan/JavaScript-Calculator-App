@@ -1,5 +1,6 @@
 'use strict'
 
+
 // ---------- 📅 Date 📅 --------------
 const weekdays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
@@ -80,6 +81,28 @@ const calculatorBtns = document.querySelectorAll('.btn');
 calculatorBtns.forEach((button) => {
     button.addEventListener('click', function (e) {
         const pressedBtn = e.target;
-        console.log(pressedBtn.textContent);
+        const btnValue = pressedBtn.textContent;
+        // console.log(btnValue);
+        if (pressedBtn.classList.contains('clear-btn')) {
+            console.log('Calculator cleared.');
+        } else if (pressedBtn.classList.contains('delete-btn')) {
+            console.log('Deleted.');
+        } else if (pressedBtn.classList.contains('equals-btn')) {
+            console.log('Equals pressed.');
+        } else if (pressedBtn.classList.contains('number-btn')) {
+            console.log('Number pressed.');
+        } else if (pressedBtn.classList.contains('operator-btn')) {
+            if (btnValue === '+') {
+                console.log('Addition pressed.');
+            } else if (btnValue === '-') {
+                console.log('Subtraction pressed.');
+            } else if (btnValue === '÷') {
+                console.log('Division pressed.');
+            } else if (btnValue === '×') {
+                console.log('Multiplication pressed.');
+            }
+        } else if (pressedBtn.classList.contains('number-btn')) {
+            console.log(`Number pressed.`);
+        }
     });
 });
