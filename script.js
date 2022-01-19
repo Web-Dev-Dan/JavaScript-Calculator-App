@@ -77,12 +77,14 @@ function openLogModal() {
 
 // ---------- 🧮 Calculator 🧮 ----------
 const calculatorBtns = document.querySelectorAll('.btn');
+const previousOperand = document.querySelector('.previous');
+const currentOperand = document.querySelector('.current');
 
 calculatorBtns.forEach((button) => {
     button.addEventListener('click', function (e) {
         const pressedBtn = e.target;
         const btnValue = pressedBtn.textContent;
-        // console.log(btnValue);
+
         if (pressedBtn.classList.contains('clear-btn')) {
             console.log('Calculator cleared.');
         } else if (pressedBtn.classList.contains('delete-btn')) {
@@ -90,19 +92,29 @@ calculatorBtns.forEach((button) => {
         } else if (pressedBtn.classList.contains('equals-btn')) {
             console.log('Equals pressed.');
         } else if (pressedBtn.classList.contains('number-btn')) {
-            console.log('Number pressed.');
+            // Number Buttons 🔢
+            console.log(`Number ${btnValue} pressed.`);
+            currentOperand.textContent += btnValue;
         } else if (pressedBtn.classList.contains('operator-btn')) {
+            // Operator Buttons ❓
             if (btnValue === '+') {
+                previousOperand.textContent = `${currentOperand.textContent} +`;
+                currentOperand.textContent = 0;
                 console.log('Addition pressed.');
             } else if (btnValue === '-') {
+                previousOperand.textContent = `${currentOperand.textContent} -`;
+                currentOperand.textContent = 0;
                 console.log('Subtraction pressed.');
             } else if (btnValue === '÷') {
+                previousOperand.textContent = `${currentOperand.textContent} ÷`;
+                currentOperand.textContent = 0;
                 console.log('Division pressed.');
             } else if (btnValue === '×') {
+                previousOperand.textContent = `${currentOperand.textContent} ×`;
+                currentOperand.textContent = 0;
                 console.log('Multiplication pressed.');
             }
-        } else if (pressedBtn.classList.contains('number-btn')) {
-            console.log(`Number pressed.`);
+            // previousOperand.textContent = `${currentOperand.textContent} ${currentOperand}`;
         }
     });
 });
