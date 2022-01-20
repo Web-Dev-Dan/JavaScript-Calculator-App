@@ -87,6 +87,7 @@ calculatorBtns.forEach((button) => {
 
         if (pressedBtn.classList.contains('clear-btn')) {
             console.log('Calculator cleared.');
+            clearCalculator();
         } else if (pressedBtn.classList.contains('delete-btn')) {
             console.log('Deleted.');
         } else if (pressedBtn.classList.contains('equals-btn')) {
@@ -118,3 +119,8 @@ calculatorBtns.forEach((button) => {
         }
     });
 });
+
+function clearCalculator() {
+    currentOperand.textContent = 0;
+    previousOperand.textContent = '';
+}
