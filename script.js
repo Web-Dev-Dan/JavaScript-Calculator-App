@@ -80,6 +80,9 @@ const calculatorBtns = document.querySelectorAll('.btn');
 const previousOperand = document.querySelector('.previous');
 const currentOperand = document.querySelector('.current');
 
+let calculation;
+let operand;
+
 calculatorBtns.forEach((button) => {
     button.addEventListener('click', function (e) {
         const pressedBtn = e.target;
@@ -92,30 +95,47 @@ calculatorBtns.forEach((button) => {
             console.log('Deleted.');
         } else if (pressedBtn.classList.contains('equals-btn')) {
             console.log('Equals pressed.');
+            if (operand === 'add') {
+                currentOperand.textContent = parseInt(previousOperand.textContent) + parseInt(currentOperand.textContent);
+            } else if (operand === 'subtract') {
+                currentOperand.textContent = parseInt(previousOperand.textContent) - parseInt(currentOperand.textContent);
+            } else if (operand === 'divide') {
+                currentOperand.textContent = parseInt(previousOperand.textContent) / parseInt(currentOperand.textContent);
+            } else if (operand === 'multiply') {
+                currentOperand.textContent = parseInt(previousOperand.textContent) * parseInt(currentOperand.textContent);
+            }
+            previousOperand.textContent = '';
         } else if (pressedBtn.classList.contains('number-btn')) {
             // Number Buttons 🔢
             console.log(`Number ${btnValue} pressed.`);
-            currentOperand.textContent += btnValue;
+            if (currentOperand.textContent === '0') {
+                currentOperand.textContent = btnValue;
+            } else {
+                currentOperand.textContent += btnValue;
+            }
         } else if (pressedBtn.classList.contains('operator-btn')) {
             // Operator Buttons ❓
             if (btnValue === '+') {
                 previousOperand.textContent = `${currentOperand.textContent} +`;
                 currentOperand.textContent = 0;
+                operand = 'add';
                 console.log('Addition pressed.');
             } else if (btnValue === '-') {
                 previousOperand.textContent = `${currentOperand.textContent} -`;
                 currentOperand.textContent = 0;
+                operand = 'subtract';
                 console.log('Subtraction pressed.');
             } else if (btnValue === '÷') {
                 previousOperand.textContent = `${currentOperand.textContent} ÷`;
                 currentOperand.textContent = 0;
+                operand = 'divide';
                 console.log('Division pressed.');
             } else if (btnValue === '×') {
                 previousOperand.textContent = `${currentOperand.textContent} ×`;
                 currentOperand.textContent = 0;
+                operand = 'multiply';
                 console.log('Multiplication pressed.');
             }
-            // previousOperand.textContent = `${currentOperand.textContent} ${currentOperand}`;
         }
     });
 });
