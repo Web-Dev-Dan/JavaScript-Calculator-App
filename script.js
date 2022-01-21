@@ -119,22 +119,18 @@ calculatorBtns.forEach((button) => {
                 previousOperand.textContent = `${currentOperand.textContent} +`;
                 currentOperand.textContent = 0;
                 operand = 'add';
-                console.log('Addition pressed.');
             } else if (btnValue === '-') {
                 previousOperand.textContent = `${currentOperand.textContent} -`;
                 currentOperand.textContent = 0;
                 operand = 'subtract';
-                console.log('Subtraction pressed.');
             } else if (btnValue === '÷') {
                 previousOperand.textContent = `${currentOperand.textContent} ÷`;
                 currentOperand.textContent = 0;
                 operand = 'divide';
-                console.log('Division pressed.');
             } else if (btnValue === '×') {
                 previousOperand.textContent = `${currentOperand.textContent} ×`;
                 currentOperand.textContent = 0;
                 operand = 'multiply';
-                console.log('Multiplication pressed.');
             }
         }
     });
