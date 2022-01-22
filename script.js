@@ -89,25 +89,34 @@ calculatorBtns.forEach((button) => {
         const btnValue = pressedBtn.textContent;
 
         if (pressedBtn.classList.contains('clear-btn')) {
-            console.log('Calculator cleared.');
             clearCalculator();
         } else if (pressedBtn.classList.contains('delete-btn')) {
             console.log('Deleted.');
+            deleteDigit();
         } else if (pressedBtn.classList.contains('equals-btn')) {
-            console.log('Equals pressed.');
             if (operand === 'add') {
-                currentOperand.textContent = parseInt(previousOperand.textContent) + parseInt(currentOperand.textContent);
+                currentOperand.textContent = parseFloat(previousOperand.textContent) + parseFloat(currentOperand.textContent);
             } else if (operand === 'subtract') {
-                currentOperand.textContent = parseInt(previousOperand.textContent) - parseInt(currentOperand.textContent);
+                currentOperand.textContent = parseFloat(previousOperand.textContent) - parseFloat(currentOperand.textContent);
             } else if (operand === 'divide') {
-                currentOperand.textContent = parseInt(previousOperand.textContent) / parseInt(currentOperand.textContent);
+                currentOperand.textContent = parseFloat(previousOperand.textContent) / parseFloat(currentOperand.textContent);
             } else if (operand === 'multiply') {
-                currentOperand.textContent = parseInt(previousOperand.textContent) * parseInt(currentOperand.textContent);
+                currentOperand.textContent = parseFloat(previousOperand.textContent) * parseFloat(currentOperand.textContent);
             }
             previousOperand.textContent = '';
+            // Limit Number of Decimal Places
+            const currentOperandNumber = parseFloat(currentOperand.textContent);
+            const currentOperandArray = Array.from(currentOperand.textContent);
+            let decimalNumber;
+
+            if (currentOperandArray.includes('.')) {
+                console.log('THis doesnt have a decimal point')
+            } else {
+                console.log('THis doesnt have a decimal point')
+            }
+
         } else if (pressedBtn.classList.contains('number-btn')) {
             // Number Buttons 🔢
-            console.log(`Number ${btnValue} pressed.`);
             if (currentOperand.textContent === '0') {
                 currentOperand.textContent = btnValue;
             } else {
@@ -139,4 +148,13 @@ calculatorBtns.forEach((button) => {
 function clearCalculator() {
     currentOperand.textContent = 0;
     previousOperand.textContent = '';
+}
+
+function deleteDigit() {
+    const digitArray = Array.from(currentOperand.textContent);
+    digitArray.pop();
+    currentOperand.textContent = digitArray.join('');
+    if (digitArray.length === 0) {
+        currentOperand.textContent = '0';
+    }
 }
