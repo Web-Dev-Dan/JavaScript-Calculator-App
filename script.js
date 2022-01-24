@@ -110,9 +110,9 @@ calculatorBtns.forEach((button) => {
             let decimalNumber;
 
             if (currentOperandArray.includes('.')) {
-                console.log('THis doesnt have a decimal point')
+                // console.log('THis doesnt have a decimal point')
             } else {
-                console.log('THis doesnt have a decimal point')
+                // console.log('THis doesnt have a decimal point')
             }
 
         } else if (pressedBtn.classList.contains('number-btn')) {
