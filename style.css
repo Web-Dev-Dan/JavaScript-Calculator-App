@@ -2,12 +2,10 @@
 :root {
     --color-light: #fff;
     --color-dark: #333;
-
     --calculator-color: #fff;
     --number-button-color: lightgray;
     --operator-button-color: gray;
     --main-button-color: rgb(123, 123, 123);
-
     --calculator-font: Verdana;
 }
 
